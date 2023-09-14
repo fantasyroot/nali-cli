@@ -2,16 +2,15 @@
   <img width="550" src="nali-cli.svg">
 </p>
 
-<h1 align="center">Nali CLI</h1>
+<h1 align="center">Nali IP CLI</h1>
 
-<p align="center">:anchor: Parse info of IP Address or CDN's CNAME without leaving your terminal</p>
+<p align="center">:anchor: Parse info of IP Address or CDN's CNAME online without leaving your terminal</p>
 
 <p align="center">
-<a href="https://skk.moe"><img alt="Author" src="https://img.shields.io/badge/Author-Sukka-blue.svg?style=flat-square"/></a>
-<a href="https://github.com/fantasyroot"><img alt="Contributor" src="https://img.shields.io/badge/Contributor-Anto17-blue.svg?style=flat-square"/></a>
-<a href="https://www.npmjs.com/package/nali-cli"><img alt="Version" src="https://img.shields.io/npm/v/nali-cli.svg?style=flat-square"/></a>
-<img slt="Download times" src="https://img.shields.io/npm/dt/nali-cli?style=flat-square"/>
-<img alt="License" src="https://img.shields.io/npm/l/nali-cli.svg?style=flat-square"/>
+<a href="https://github.com/fantasyroot"><img alt="Author" src="https://img.shields.io/badge/Author-Anto17-blue.svg?style=flat-square"/></a>
+<a href="https://www.npmjs.com/package/nali-ip-cli"><img alt="Version" src="https://img.shields.io/npm/v/nali-ip-cli.svg?style=flat-square"/></a>
+<img slt="Download times" src="https://img.shields.io/npm/dt/nali-ip-cli?style=flat-square"/>
+<img alt="License" src="https://img.shields.io/npm/l/nali-ip-cli.svg?style=flat-square"/>
 </p>
 
 ## Feature
@@ -23,11 +22,20 @@
 ## Installation
 
 ```bash
-yarn global add nali-cli
-# npm install nali-cli -g
+yarn global add nali-ip-cli
+# npm install nali-ip-cli -g
+
+# Optional: Add following lines to ~/.zshrc if you want alias built-in commands
+# if (( $+commands[nali] )); then
+#   alias ping="nali-ping"
+#   alias dig="nali-dig"
+#   alias traceroute="nali-traceroute"
+#   alias tracepath="nali-tracepath"
+#   alias nslookup="nali-nslookup"
+# fi
 ```
 
-> Prebuilt binaries is also available under the [`bin`](https://github.com/SukkaW/nali-cli/tree/master/bin) directory of the GitHub Repo.
+> Prebuilt binaries is also available under the [`bin`](https://github.com/fantasyroot/nali-ip-cli/tree/master/bin) directory of the GitHub Repo.
 
 ## Usage
 
@@ -36,45 +44,40 @@ Query a simple IP address:
 ```
 $ nali 1.145.1.4
 
-1.145.1.4 [澳大利亚 墨尔本 Telstra]
+1.145.1.4 [澳大利亚，新南威尔士州，悉尼，澳大利亚电信]
 ```
 
 Query IP addresses:
 
 ```
-$ nali 114.5.1.4 191.919.8.10 1.0.0.1
+$ nali 114.5.1.4 191.919.8.10 223.5.5.5
 
-114.5.1.4 [印度尼西亚] 191.919.8.10 1.0.0.1 [美国 APNIC&CloudFlare 公共 DNS 服务器]
+114.5.1.4 [印度尼西亚，雅加达，Indosat] 191.919.8.10 223.5.5.5 [中国，浙江，杭州，阿里云]
 ```
 
 Query and parse IP addresses, CNAME from `stdin`:
 
 ```
-$ dig blog.skk.moe +short | nali
+$ dig www.baidu.com +short | nali
 
-104.18.101.28 [美国 CloudFlare 公司 CDN 节点]
-104.18.100.28 [美国 CloudFlare 公司 CDN 节点]
+www.a.shifen.com. [百度旗下业务地域负载均衡系统]
+180.101.50.242 [中国，江苏，南京，电信]
+180.101.50.188 [中国，江苏，南京，电信]
 
 
-$ nslookup www.gov.cn 1.0.0.1 | nali
-Server:		1.0.0.1 [美国 APNIC&CloudFlare 公共 DNS 服务器]
-Address:	1.0.0.1 [美国 APNIC&CloudFlare 公共 DNS 服务器]#53
+$ nslookup www.gov.cn 223.5.5.5 | nali
+Server:		223.5.5.5 [中国，浙江，杭州，阿里云]
+Address:	223.5.5.5 [中国，浙江，杭州，阿里云]#53
 
 Non-authoritative answer:
 www.gov.cn	canonical name = www.gov.cn.bsgslb.cn. [白山云 CDN]
-www.gov.cn.bsgslb.cn [白山云 CDN]	canonical name = zgovweb.v.bsgslb.cn. [白山云 CDN]
+www.gov.cn.bsgslb.cn	canonical name = zgovweb.v.bsgslb.cn. [白山云 CDN]
 Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 107.155.25.117 [香港 Zenlayer]
+Address: 183.134.34.28 [中国，浙江，嘉兴，电信]
 Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 107.155.25.118 [香港 Zenlayer]
+Address: 183.134.34.26 [中国，浙江，嘉兴，电信]
 Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 107.155.25.116 [香港 Zenlayer]
-Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 107.155.25.120 [香港 Zenlayer]
-Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 2001:438:fffd:98::4
-Name:	zgovweb.v.bsgslb.cn [白山云 CDN]
-Address: 2001:438:fffd:98::5
+Address: 144.123.124.25 [中国，山东，德州，电信]
 ```
 
 Use Nali CLI built-in tools:
@@ -99,11 +102,11 @@ Address: 2606:4700::6812:651c
 $ dig cdn.jsdelivr.net @1.0.0.1 +short
 
 cdn.jsdelivr.net.cdn.cloudflare.net. [Cloudflare]
-104.16.89.20 [美国 CloudFlare 公司 CDN 节点]
-104.16.88.20 [美国 CloudFlare 公司 CDN 节点]
-104.16.85.20 [美国 CloudFlare 公司 CDN 节点]
-104.16.87.20 [美国 CloudFlare 公司 CDN 节点]
-104.16.86.20 [美国 CloudFlare 公司 CDN 节点]
+104.16.88.20 [美国，CloudFlare]
+104.16.89.20 [美国，CloudFlare]
+104.16.85.20 [美国，CloudFlare]
+104.16.87.20 [美国，CloudFlare]
+104.16.86.20 [美国，CloudFlare]
 ```
 
 > Nali CLI has built-in tools:
@@ -146,14 +149,7 @@ Commands:
 ```
 
 ## Related
-
+- [Nali-cli](https://github.com/SukkaW/nali-cli) Forked From Nali CLI, query with qqwry offline
 - [Nali](https://github.com/SukkaW/Nali) Oringinal Nali CLI, written in C & Perl
 - [Commander.js](https://github.com/tj/commander.js) Node.js command-line interfaces made easy
 - [SukkaLab/cdn](https://lab.skk.moe/cdn) A CDN CNAME Data
-
-## Author
-
-**Nali CLI** © [Sukka](https://github.com/SukkaW), Released under the [GPL-3.0](./LICENSE) License.<br>
-Authored and maintained by Sukka with help from contributors ([list](https://github.com/SukkaW/nali-cli/graphs/contributors)).
-
-> [Personal Website](https://skk.moe) · [Blog](https://blog.skk.moe) · GitHub [@SukkaW](https://github.com/SukkaW) · Telegram Channel [@SukkaChannel](https://t.me/SukkaChannel) · Twitter [@isukkaw](https://twitter.com/isukkaw) · Keybase [@sukka](https://keybase.io/sukka)
