@@ -1,3 +1,5 @@
 nali-cli.svg
 docs
 bin
+.vscode
+.prettierrc.js

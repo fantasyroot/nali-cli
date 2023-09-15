@@ -18,6 +18,7 @@
 - [x] Cache for duplicate IP information.
 - [x] Allows to select query server from multiple servers, and remember.
 - [x] Used with other commands, receives standard output as a pipe, convert the IP address in it.
+- [ ] Add other query server and schemas by user.
 
 ## Installation
 
@@ -25,7 +26,7 @@
 yarn global add nali-ip-cli
 # npm install nali-ip-cli -g
 
-# Optional: Add following lines to ~/.zshrc if you want alias built-in commands
+## Optional: Add following lines to ~/.zshrc if you want alias built-in commands. Use raw ping by this way: \ping 223.5.5.5
 # if (( $+commands[nali] )); then
 #   alias ping="nali-ping"
 #   alias dig="nali-dig"
@@ -122,13 +123,24 @@ cdn.jsdelivr.net.cdn.cloudflare.net. [Cloudflare]
 Change Query Server:
 
 ```
-nali server
+$ nali server
+Current query server is [taobao]
+
+? Select a query server:  (Use arrow keys)
+❯ taobao
+  ip.sb
+  ipinfo.io
+  ip-api
+  ipstack
+  ipdata
+  ipwho
+  ipregistry
 
 # View the current query server
-nali server -c
+$ nali server -c
 
 # Change query server to default
-nali server -d
+$ nali server -d
 ```
 
 ## Interface
