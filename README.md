@@ -24,6 +24,11 @@
 
 ```bash
 yarn global add nali-ip-cli
+```
+
+or
+
+```bash
 # npm install nali-ip-cli -g
 
 ## Optional: Add following lines to ~/.zshrc if you want alias built-in commands. Use raw ping by this way: \ping 223.5.5.5
@@ -120,7 +125,7 @@ cdn.jsdelivr.net.cdn.cloudflare.net. [Cloudflare]
 >
 > Nali required related software installed. For example, in order to use `nali-dig` and `nali-nslookup` you need to have bind (dnsutils) installed.
 
-Change Query Server:
+Change Query Server, Persist Records To `~/.config/nali-cli/servername.txt`:
 
 ```
 $ nali server
@@ -161,7 +166,7 @@ Commands:
 ```
 
 ## Related
-- [Nali-cli](https://github.com/SukkaW/nali-cli) Forked From Nali CLI, query with qqwry offline
+- [Nali-cli](https://github.com/SukkaW/nali-cli) Forked From, Nali CLI, query with qqwry offline
 - [Nali](https://github.com/SukkaW/Nali) Oringinal Nali CLI, written in C & Perl
 - [Commander.js](https://github.com/tj/commander.js) Node.js command-line interfaces made easy
 - [SukkaLab/cdn](https://lab.skk.moe/cdn) A CDN CNAME Data
