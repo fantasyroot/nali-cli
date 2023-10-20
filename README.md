@@ -4,7 +4,7 @@
 
 <h1 align="center">Nali IP CLI</h1>
 
-<p align="center">:anchor: Parse info of IP Address or CDN's CNAME online without leaving your terminal</p>
+<p align="center">:anchor: Parse info of IP Address or CDN's CNAME online without leaving your terminal. 一个支持在线查询 IP 归属地信息的命令行工具。</p>
 
 <p align="center">
 <a href="https://github.com/fantasyroot"><img alt="Author" src="https://img.shields.io/badge/Author-Anto17-blue.svg?style=flat-square"/></a>
@@ -21,7 +21,7 @@
 - [ ] Add other query server and schemas by user.
 - [ ] Automatically switch query server when current is unavailable.
 
-## Installation
+## Installation or Upgrade
 
 ```bash
 yarn global add nali-ip-cli
@@ -46,7 +46,7 @@ yarn global add nali-ip-cli
 
 Query a simple IP address:
 
-```
+```bash
 $ nali 1.145.1.4
 
 1.145.1.4 [澳大利亚，新南威尔士州，悉尼，澳大利亚电信]
@@ -54,15 +54,27 @@ $ nali 1.145.1.4
 
 Query IP addresses:
 
-```
-$ nali 114.5.1.4 191.919.8.10 223.5.5.5
+```bash
+$ nali 114.5.1.4 223.5.5.5
 
-114.5.1.4 [印度尼西亚，雅加达，Indosat] 191.919.8.10 223.5.5.5 [中国，浙江，杭州，阿里云]
+114.5.1.4 [印度尼西亚，雅加达，Indosat] 223.5.5.5 [中国，浙江，杭州，阿里云]
+```
+
+Ping domain query IP addresses
+
+```bash
+$ nali-ping github.com
+# or
+# ping github.com (with alias ping="nali-ping")
+
+PING github.com (20.205.243.166 [新加坡，微软]): 56 data bytes
+64 bytes from 20.205.243.166 [新加坡，微软]: icmp_seq=0 ttl=112 time=89.489 ms
+64 bytes from 20.205.243.166 [新加坡，微软]: icmp_seq=1 ttl=112 time=89.627 ms
 ```
 
 Query and parse IP addresses, CNAME from `stdin`:
 
-```
+```bash
 $ dig www.baidu.com +short | nali
 
 www.a.shifen.com. [百度旗下业务地域负载均衡系统]
@@ -87,7 +99,7 @@ Address: 144.123.124.25 [中国，山东，德州，电信]
 
 Use Nali CLI built-in tools:
 
-```
+```bash
 $ nali-nslookup blog.skk.moe
 
 Server:         1.0.0.1 [美国 APNIC&CloudFlare 公共 DNS 服务器]
@@ -126,7 +138,7 @@ cdn.jsdelivr.net.cdn.cloudflare.net. [Cloudflare]
 
 Change Query Server, Persist Records To `~/.config/nali-cli/servername.txt`:
 
-```
+```bash
 $ nali server
 Current query server is [taobao]
 
@@ -151,7 +163,7 @@ $ nali server -d
 
 ## Interface
 
-```
+```bash
 $ nali --help
 
 Usage: nali <command> [options]
