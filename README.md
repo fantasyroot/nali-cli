@@ -19,16 +19,15 @@
 - [x] Allows to select query server from multiple servers, and remember.
 - [x] Used with other commands, receives standard output as a pipe, convert the IP address in it.
 - [ ] Add other query server and schemas by user.
+- [ ] Automatically switch query server when current is unavailable.
 
 ## Installation
 
 ```bash
 yarn global add nali-ip-cli
-```
 
-or
+# or
 
-```bash
 # npm install nali-ip-cli -g
 
 ## Optional: Add following lines to ~/.zshrc if you want alias built-in commands. Use raw ping by this way: \ping 223.5.5.5
@@ -133,8 +132,10 @@ Current query server is [taobao]
 
 ? Select a query server:  (Use arrow keys)
 ❯ taobao
-  ip.sb
   ipinfo.io
+  ipapi.is
+  ip.sb
+  ip.fm
   ip-api
   ipstack
   ipdata

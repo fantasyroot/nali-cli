@@ -6,6 +6,21 @@ const QUERY_SERVER_SCHEMA = {
     city: ["data", "city"],
     isp: ["data", "isp"],
   },
+  "ipinfo.io": {
+    getUrl: (ip) => `https://ipinfo.io/${ip}/json`,
+    country: "country",
+    region: "region",
+    city: "city",
+    isp: "org",
+  },
+  "ipapi.is": {
+    // 1,000 free API lookups per day.
+    getUrl: (ip) => `https://api.ipapi.is/?q=${ip}`,
+    country: ["location", "country"],
+    region: ["location", "state"],
+    city: ["location", "city"],
+    isp: ["asn", "org"],
+  },
   "ip.sb": {
     getUrl: (ip) => `https://api.ip.sb/geoip/${ip}`,
     country: "country",
@@ -13,12 +28,12 @@ const QUERY_SERVER_SCHEMA = {
     city: "city",
     isp: "isp",
   },
-  "ipinfo.io": {
-    getUrl: (ip) => `https://ipinfo.io/${ip}/json`,
-    country: "country",
-    region: "region",
-    city: "city",
-    isp: "org",
+  "ip.fm": {
+    getUrl: (ip) => `https://api.ip.fm/${ip}`,
+    country: ["data", "country"],
+    region: ["data", "subdivisions"],
+    city: ["data", "city"],
+    isp: ["data", "country"],
   },
   "ip-api": {
     getUrl: (ip) =>
