@@ -35,6 +35,13 @@ const QUERY_SERVER_SCHEMA = {
     city: ["data", "city"],
     isp: ["data", "country"],
   },
+  "ifconfig.co": {
+    getUrl: (ip) => `https://ifconfig.co/json?ip=${ip}`,
+    country: "country",
+    region: "region_name",
+    city: "city",
+    isp: "asn_org",
+  },
   "ip-api": {
     getUrl: (ip) =>
       `https://pro.ip-api.com/json/${ip}?fields=16985625&key=EEKS6bLi6D91G1p`,
