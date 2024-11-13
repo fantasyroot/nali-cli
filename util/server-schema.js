@@ -1,11 +1,11 @@
 const QUERY_SERVER_SCHEMA = {
-  taobao: {
-    getUrl: (ip) => `http://tbip.alicdn.com/api/getipinfo?ip=${ip}`,
-    country: ["data", "country"],
-    region: ["data", "region"],
-    city: ["data", "city"],
-    isp: ["data", "isp"],
-  },
+  // taobao: {
+  //   getUrl: (ip) => `http://tbip.alicdn.com/api/getipinfo?ip=${ip}`,
+  //   country: ["data", "country"],
+  //   region: ["data", "region"],
+  //   city: ["data", "city"],
+  //   isp: ["data", "isp"],
+  // },
   "ipinfo.io": {
     getUrl: (ip) => `https://ipinfo.io/${ip}/json`,
     country: "country",
@@ -21,13 +21,13 @@ const QUERY_SERVER_SCHEMA = {
     city: ["location", "city"],
     isp: ["asn", "org"],
   },
-  "ip.sb": {
-    getUrl: (ip) => `https://api.ip.sb/geoip/${ip}`,
-    country: "country",
-    region: "region",
-    city: "city",
-    isp: "isp",
-  },
+  // "ip.sb": {
+  //   getUrl: (ip) => `https://api.ip.sb/geoip/${ip}`,
+  //   country: "country",
+  //   region: "region",
+  //   city: "city",
+  //   isp: "isp",
+  // },
   "ip.fm": {
     getUrl: (ip) => `https://api.ip.fm/${ip}`,
     country: ["data", "country"],
@@ -58,14 +58,14 @@ const QUERY_SERVER_SCHEMA = {
     city: "city",
     isp: ["connection", "isp"],
   },
-  ipdata: {
-    getUrl: (ip) =>
-      `https://api.ipdata.co/${ip}?api-key=513d4b07583037a5a89b6cff4ebff0083bef180977dc71dd73804cf8`,
-    country: "country_name",
-    region: "region",
-    city: "city",
-    isp: ["asn", "name"],
-  },
+  // ipdata: {
+  //   getUrl: (ip) =>
+  //     `https://api.ipdata.co/${ip}?api-key=513d4b07583037a5a89b6cff4ebff0083bef180977dc71dd73804cf8`,
+  //   country: "country_name",
+  //   region: "region",
+  //   city: "city",
+  //   isp: ["asn", "name"],
+  // },
   ipwho: {
     getUrl: (ip) => `https://ipwho.is/${ip}`,
     country: "country",
